@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="bigContent">
+        <div id="upContent">
+            <div id="letterContent">
+                <div id="logo"></div>
+            </div>
+
+            <div id="downForm">
+                <p id="H1">WIS产品防伪码验证</p>
+                <div id="form">
+                    <!-- 防伪码 -->
+                    <div id="form_first">
+                        <span id="securityCode">防伪码</span>
+                        <input type="text" name="first" placeholder="请输入标签上的防伪码"/>
+                    </div>
+                    <div id="form_second">
+                        <span id="verificationCode">验证码</span>
+                        <input id="verificationCode_con" type="text" name="second" placeholder="请输入验证码" />
+                        <span id="random" onclick="tagF()"></span>
+                    </div>
+                </div>
+                <input type="submit" name="submit" value="点击查询" onclick="confirm_val()"/>
+            </div>
+        </div>
+        <div id="downContent">
+            <div id="upContentDown">
+                <span id="leftIcon">官方商城</span>
+                <span id="rightIcon">官方微信</span>
+            </div>
+        </div>
+        <div id="phone">
+            <div id="letter">免费播400-001-1220官方防伪咨询热线</div>
+            <img id="phoneIcon" src="./images/icon1.png" />
+        </div>
+    </div>
+</body>
+</html>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    html{
+        display: flex;
+        justify-content: center;
+    }
+    body{
+        font-size: 37.5px;
+        height: auto;
+    }
+    #bigContent{
+        overflow: hidden;
+        height: auto;
+        overflow: hidden;
+    }
+    #letterContent{
+        height:10rem;
+    }
+    #upContent{
+        height: auto;
+        background-color: #23a8f5;
+        overflow: hidden;
+    }
+    #upContent #logo{
+        background: url(./images/logo.png) no-repeat center;
+        width: 100%;
+        height: 100%;
+        background-size: 40%;
+    }
+
+    #upContent #up{
+        font-weight: 900;
+    }
+    #upContent #down{
+        font-size: .8rem;
+        font-weight: 500;
+        line-height: 10%;
+    }
+    #upContent #up span{
+        font-size: 1.5rem;
+        font-weight: lighter;
+        position: absolute;
+        top: 2%;
+    }
+    #upContent #downForm{
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+    #downForm #H1{
+        font-size: 2rem;
+    }
+   
+    #form{
+        width: 100%;
+        height: auto;
+        padding-top: 4%;
+        position: relative;
+    }
+    
+    #form #form_first,#form #form_second{
+        color:#a8dafb;
+    }
+
+    #form #form_first>span,#form #form_second>span{
+        position:absolute;
+    }
+    #form #form_first>span{top:44%;}
+    #form #form_second span:nth-child(1){top:43%;}
+
+    #form #form_first,#form #form_second{
+        display: inline-block;
+        width: 72%;
+        padding: 5% 0% 2% 0%;
+        border-bottom: 1px solid white;
+        text-align: left;
+        position: relative;
+    }
+    
+    #form input{
+        border: none;
+        background-color: rgba(255,255,255,0);
+        color: white;
+        width: 80%;
+        height: 2rem;
+        font-size: 1rem;
+        padding-left: 27%;
+    }
+    #form input::placeholder{
+        text-align: left;
+        color: #91cefd;
+    }
+    #form input::-webkit-input-placeholder{
+        text-align: left;
+        color: #91cefd;
+    }
+    #form input::-moz-placeholder{
+        text-align: left;
+        color: #91cefd;
+    }
+    #form input::-ms-input-placeholder{
+        text-align: left;
+        color: #91cefd;
+    }
+    #form input:focus{
+        border:none;
+        outline: none;
+    }
+    #form input:-webkit-focus{
+        border:none;
+        outline: none;
+    }
+    #form input:-moz-focus{
+        border:none;
+        outline: none;
+    }
+    #form input:-ms-focus{
+        border:none;
+        outline: none;
+    }
+
+
+    #random{
+        position: absolute;
+        top: 20%;
+        right: 0%;
+        background-color: #7acbfa;
+        display: inline-block;
+        padding: 3%;
+        border-radius: 4px;
+        color:#d1ecf5;
+
+    }
+
+    #upContent #downForm input[type="submit"]{
+        background-color: white;
+        height: 3rem;
+        border-radius: .6rem;
+        color: #23a8f5;
+        margin-top:6%;
+        width: 86%;
+        margin-bottom: 6%;
+        border: none;
+        font-size: 1.1rem;
+    }
+
+    #downContent{
+        height: 14rem;
+        font-size: 1rem;
+    }
+
+    #downContent #upContentDown{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: -webkit-flex;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #downContent #upContentDown #leftIcon,#downContent #upContentDown #rightIcon{
+        display: inline-block;
+        width: 45%;
+        height: 78%;
+        text-align: center;
+        line-height: 19rem;
+    }
+    #downContent #upContentDown #leftIcon{
+        border-right:1px solid #9e9e9e;
+        background: url('./images/logo_2.png') no-repeat center;
+        background-size: auto;
+    }
+    #downContent #upContentDown #rightIcon{
+        background: url('./images/logo_3.png') no-repeat center;
+        background-size: auto;
+    }
+
+    
+    #phone{
+        position: relative;
+        background-color: #1f8fe5;
+        color: white;
+        font-size: .9rem;
+        width: 100%;
+        height: 2rem;
+        padding: 1%;
+    }
+    #phone #letter{
+        margin: 2% 0% 0% 9%;
+    }
+
+    #phoneIcon{
+        position: absolute;
+        top: 17%;
+        right: 15%;
+        width: 7%;
+    }
+
+    @media screen and (max-width:320px){
+        #downForm #H1{
+            font-size:1.7rem;
+        }
+        #phoneIcon{
+            right: 6%;
+        }
+
+    }
+    @media screen and (min-width:412px){
+        #phoneIcon{
+            right: 20%;
+        }
+    }
+    @media screen and (min-width:414px){
+        #phoneIcon{
+            right: 19%;
+        }
+    }
+
+
+   
+    
+    
+</style>
+
+<script>
+    var ran = document.getElementById("random");
+    var veri_con = document.getElementById("verificationCode_con");
+    var str = "";
+    window.onload = function(){
+        tagF();
+    };
+   
+    
+    var arr = [1,2,3,4,5,6,7,8,9,'A','B','C','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','x','t','u','v','w','x','y','z'];
+    function tagF(){
+        
+        ran.innerHTML = "";
+        for(var i = 0;i<4;i++){
+            str = arr[Math.floor(Math.random()*arr.length+1)];
+            if(str == undefined){
+                i -= 1;
+                continue;
+            }else{
+                ran.innerHTML += str;
+            }
+        }
+    }
+
+    function confirm_val(){
+        if(veri_con.value == ran.innerHTML){
+            alert("输入正确");
+        }
+        else{
+            alert("输入错误");
+        }
+    }
+
+    
+</script>
